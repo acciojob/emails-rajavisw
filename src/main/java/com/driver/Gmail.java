@@ -14,6 +14,7 @@ public class Gmail extends Email {
     //Trash: Stores mails. Each mail has date (Date), sender (String), message (String)
     public Gmail(String emailId, int inboxCapacity) {
         super(emailId);
+        this.inboxCapacity=inboxCapacity;
         this.inbox=new ArrayList<>();
         this.trash=new ArrayList<>();
     }
@@ -67,7 +68,7 @@ public class Gmail extends Email {
         //It is guaranteed that start date <= end date
         int cnt=0;
         for(int i=0;i<inbox.size();i++){
-            if((inbox.get(i).getLeft().compareTo(start)>=0) && (inbox.get(i))){
+            if((inbox.get(i).getLeft().compareTo(start)>=0) && (inbox.get(i).getLeft().compareTo(end)<=0)){
                 cnt++;
             }
         }
